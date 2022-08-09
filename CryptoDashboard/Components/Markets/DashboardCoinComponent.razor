@@ -1,0 +1,33 @@
+﻿@inherits DashboardBase
+
+@if (Coins == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <MudGrid>
+        @foreach (var coin in Coins)
+        {
+            <MudItem xs="12" md="4" lg="4">
+                <MudCard Elevation="0">
+                    <MudCardContent Class="rounded-lg d-flex py-4 justify-content-between" Style="@($"background:{Colors.Grey.Lighten5}")">
+                        <div class="pl-3 py-2 d-flex justify-content-center align-items-center">
+                            <img src="@coin.Image" width="70" height="70" class="rounded-lg" />
+                        </div>
+                        <div class="d-flex flex-column align-items-end pr-5">
+                            <MudText Typo="Typo.h6" Class="px-4">@coin.Name</MudText>
+                            <MudText Typo="Typo.body2" Class="px-4">@coin.Symbol</MudText>
+                            <MudText Class="dashboard-price">$@coin.Current_Price</MudText>
+                        </div>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+
+}
+
+@code {
+
+}
